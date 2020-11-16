@@ -65,7 +65,7 @@ Parameters:
       (-). It cannot start or end with a hyphen (-).
     Type: String
   QSS3BucketRegion:
-    Default: 'us-east-1'
+    Default: 'eu-west-2'
     Description: 'The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.'
     Type: String
   QSS3KeyPrefix:
@@ -188,13 +188,11 @@ Parameters:
     NoEcho: 'true'
   PhpVersion:
     AllowedValues:
-      - php56
-      - php70
-      - php71
-    ConstraintDescription: 'Choose a valid PHP version. Values can be php56, php70,
-      php71 '
-    Default: php56
-    Description: PHP version to be installed. PHP-5.6=php56, PHP-7.0=php70, PHP-7.1=php71
+      - php72
+      - php74
+    ConstraintDescription: 'Choose a valid PHP version. Values can be php72, php74'
+    Default: php74
+    Description: PHP version to be installed. PHP-7.2=php72, PHP-7.4=php74
     Type: String
   DrupalVersion:
     Description: Drupal version to install
@@ -612,61 +610,43 @@ Resources:
                     \ user'\n"
             '02_cleanup':
               command: sudo rm -f /tmp/setup_drupaldb.sql
-        install-packageSet-php56:
+        install-packageSet-php72:
           packages:
             yum:
               git: []
               httpd24: []
-              php56: []
-              php56-cli: []
-              php56-common: []
-              php56-pdo: []
-              php56-mysqlnd: []
-              php56-xml: []
-              php56-gd: []
+              php72: []
+              php72-cli: []
+              php72-zip: []
+              php72-common: []
+              php72-pdo: []
+              php72-mysqlnd: []
+              php72-xml: []
+              php72-gd: []
               libssh2: []
-              php56-pecl-ssh2: []
-              php56-mbstring: []
-              php56-fpm: []
-              php56-opcache: []
-              php56-pecl-memcached: []
-        install-packageSet-php70:
+              php72-pecl-ssh2: []
+              php72-mbstring: []
+              php72-fpm: []
+              php72-opcache: []
+              php72-pecl-memcached: []
+        install-packageSet-php74:
           packages:
             yum:
               git: []
               httpd24: []
-              php70: []
-              php70-cli: []
-              php70-zip: []
-              php70-common: []
-              php70-pdo: []
-              php70-mysqlnd: []
-              php70-xml: []
-              php70-gd: []
+              php74: []
+              php74-cli: []
+              php74-common: []
+              php74-pdo: []
+              php74-mysqlnd: []
+              php74-xml: []
+              php74-gd: []
               libssh2: []
-              php70-pecl-ssh2: []
-              php70-mbstring: []
-              php70-fpm: []
-              php70-opcache: []
-              php70-pecl-memcached: []
-        install-packageSet-php71:
-          packages:
-            yum:
-              git: []
-              httpd24: []
-              php71: []
-              php71-cli: []
-              php71-common: []
-              php71-pdo: []
-              php71-mysqlnd: []
-              php71-xml: []
-              php71-gd: []
-              libssh2: []
-              php71-pecl-ssh2: []
-              php71-mbstring: []
-              php71-fpm: []
-              php71-opcache: []
-              php71-pecl-memcached: []
+              php74-pecl-ssh2: []
+              php74-mbstring: []
+              php74-fpm: []
+              php74-opcache: []
+              php74-pecl-memcached: []
         drupal:
           files:
             /etc/httpd/conf.d/drupal.conf:

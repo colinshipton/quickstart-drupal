@@ -323,13 +323,11 @@ Parameters:
     Type: AWS::EC2::KeyPair::KeyName
   PhpVersion:
     AllowedValues:
-      - php56
-      - php70
-      - php71
-    ConstraintDescription: 'Choose a valid PHP version. Values can be php56, php70,
-      php71 '
-    Default: php71
-    Description: PHP version to be installed. PHP-5.6=php56, PHP-7.0=php70, PHP-7.1=php71
+      - php72
+      - php74
+    ConstraintDescription: 'Choose a valid PHP version. Values can be php72, php74'
+    Default: php74
+    Description: PHP version to be installed. PHP-7.2=php72, PHP-7.4=php74
     Type: String
   PrivateSubnet1CIDR:
     AllowedPattern: ^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/(1[6-9]|2[0-8]))$
@@ -536,6 +534,7 @@ Rules:
             - us-west-2
             - eu-central-1
             - eu-west-1
+            - eu-west-2
             - ap-southeast-2
           - !Ref 'AWS::Region'
         AssertDescription: >-
